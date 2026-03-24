@@ -1,52 +1,39 @@
-let con = document.getElementById('maincon');
+/* To-Do App Functionality */
 
-let cont = document.getElementById('input-container');
-let checkk = document.getElementById('check1');
-checkk.addEventListener('click' , function(e){
-    setTimeout(function(){
-        if(e.target.checked == true){
-        cont.remove();
-        // checkk.remove();
-    }
-    },500)
-})
-function addInputBar() {
-  const container = document.getElementById('input-container'); // Where your bars go
+// DOM Elements
+const input = document.querySelector('input[type="text"]');
+const addBtn = document.getElementById('addBtn');
+const taskList = document.querySelector('ul');
 
-  // 1. Create the container div
-  const barWrapper = document.createElement('div');
-  barWrapper.id = 'input-container'
+// Add task on button click
+addBtn.addEventListener('click', addTask);
 
+// Add task on Enter key press
+input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addTask();
+});
 
-  // 2. Create the text input
-  const textInput = document.createElement('input');
-  textInput.type = 'text';
-  textInput.placeholder = "Write the task";
-  textInput.id = 'inner-text'
-  
-  // 3. Create the checkbox
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.id = 'check1'
-
-  // 4. Put them together and add to the page
-  barWrapper.appendChild(textInput);
-  barWrapper.appendChild(checkbox);
-  con.appendChild(barWrapper);
-
-  checkbox.addEventListener('click' , function(e){
-    // console.log(e);
-     setTimeout(function(){
-        if(e.target.checked){
-        barWrapper.remove();
-    }
-     },500)
-
+// Add new task
+function addTask() {
+    const taskText = input.value.trim();
     
-})
+    if (taskText === '') {
+        alert('Please enter a task');
+        return;
+    }
+    
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <span>${taskText}</span>
+        <button class="delete-btn">Delete</button>
+    `;
+    
+    // Delete functionality
+    li.querySelector('.delete-btn').addEventListener('click', () => {
+        li.remove();
+    });
+    
+    taskList.appendChild(li);
+    input.value = '';
+    input.focus();
 }
-
-
-    
-
-  

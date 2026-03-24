@@ -3,28 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = 'stylesheet' href="style.css">
-    <title>Document</title>
+    <title>to do list</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="main">
-   <img src="grim_reaper_1.jpg">
-   <p>Pocha om shivani</p>
-   <p>Web Developing Enthusiast</p>
-   <div id="taskmanager">
-   <p>Add the Task</p>
-   <button id="btn" onclick="addInputBar()">
-    <img id="img" src='plus_symbol_1.jpg' alt="">
-   </button>
-   </div>
-   <div id="maincon">
-   <div id="input-container">
-   <input type="text" id="inner-text" placeholder="Write the task">
-   <input type="checkbox" id="check1" name="task-check" >
-   </div>
-   </div>
+
+    <div class="app-container">
+        
+        <header class="profile-section">
+            <div class="avatar-circle">
+                <span>AS</span> 
+            </div>
+            <h1 class="user-name">Sai Pranavi</h1>
+            <p class="user-bio">Engineering student | Nature Photographer | Problem Solver</p>
+        </header>
+
+        <hr> <section class="app-info">
+            <details>
+                <summary>How to use this app</summary>
+                <p>Type your task in the box below and click "Add". Use the delete button to remove completed items.</p>
+            </details>
+        </section>
+
+        <main class="todo-main">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="Enter a new task...">
+                <button id="addBtn">Add Task</button>
+            </div>
+
+            <ul id="taskList">
+                </ul>
+        </main>
+
+        <footer class="app-footer">
+            <small>&copy; 2026 Built with HTML, CSS, and JS</small>
+        </footer>
 
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
